@@ -9,4 +9,8 @@ import {
 })
 export class ByeEweComponent {
     name = 'Matt';
+
+    growUp(name: string): string{
+        return `${name} you are all grown now`
+    }
 }
