@@ -30,11 +30,41 @@
 #       uses: codecov/codecov-action@v3
 #       with:
 #         token: ${{ secrets.CODECOV_TOKEN }}
+
+
+
+
+# name: 'coverage'
+# on: [push, pull_request]
+# jobs:
+#     coverage:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - uses: actions/checkout@v3
+#             - uses: ArtiomTr/jest-coverage-report-action@v2
+
+
+
+
 name: 'coverage'
 on: [push, pull_request]
 jobs:
-    coverage:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - uses: ArtiomTr/jest-coverage-report-action@v2
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run the tests with coverage
+        run: npm run test:cov
+
+      - name: Upload coverage reports to Codecov
+        uses: ArtiomTr/jest-coverage-report-action@v2
