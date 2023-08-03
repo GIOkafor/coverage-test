@@ -31,11 +31,7 @@
 #       with:
 #         token: ${{ secrets.CODECOV_TOKEN }}
 name: 'coverage'
-on:
-    pull_request:
-        branches:
-            - master
-            - main
+on: [push, pull_request]
 jobs:
     coverage:
         runs-on: ubuntu-latest
