@@ -65,6 +65,3 @@ jobs:
 
       - name: Run the tests with coverage
         run: npm run test:cov
-
-      - name: Upload coverage reports to Codecov
-        uses: ArtiomTr/jest-coverage-report-action@v2
