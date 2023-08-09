@@ -46,6 +46,17 @@
 
 
 
+# name: 'coverage'
+# on: [pull_request]
+# jobs:
+#     coverage:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - uses: actions/checkout@v3
+#             - uses: ArtiomTr/jest-coverage-report-action@v2
+
+
+
 name: 'coverage'
 on: [pull_request]
 jobs:
@@ -53,4 +64,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - uses: ArtiomTr/jest-coverage-report-action@v2
+            - name: Coverage action
+              uses: ArtiomTr/jest-coverage-report-action@v2
+              with:
+                    test-script: npm test -- --coverage
