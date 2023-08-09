@@ -32,7 +32,12 @@
     "roots": [
       "<rootDir>/src/"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>/src/setup-jest.ts"
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setup-jest.ts",
+    "coverageThreshold": {
+      "global": {
+          "lines": 80
+      }
+    }
   },
   "repository": {
     "type": "git",
